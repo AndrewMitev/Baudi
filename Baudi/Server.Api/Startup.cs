@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
 using Owin;
+using Server.Api;
+using System.Web.Http;
 
-[assembly: OwinStartup(typeof(Server.Api.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace Server.Api
 {
@@ -13,6 +14,15 @@ namespace Server.Api
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            var httpConfig = new HttpConfiguration();
+            WebApiConfig.Register(httpConfig);
+
+            httpConfig.EnsureInitialized();
+
+            app
+                .UseNinjectMiddleware(NinjectConfig.CreateKernel)
+                .UseNinjectWebApi(httpConfig);
         }
     }
 }

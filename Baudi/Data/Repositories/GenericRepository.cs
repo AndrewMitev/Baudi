@@ -4,9 +4,9 @@
     using System.Data.Entity;
     using System.Linq;
 
-    public class EfGenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public EfGenericRepository(IBaudiDbContext context)
+        public GenericRepository(IBaudiDbContext context)
         {
             if (context == null)
             {

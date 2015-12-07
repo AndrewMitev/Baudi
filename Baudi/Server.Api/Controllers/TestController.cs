@@ -2,7 +2,9 @@
 {
     using Baudi.Services.Data.Contracts;
     using System.Web.Http;
+    using System.Web.Http.Cors;
 
+    [EnableCors("*", "*", "*")]
     public class TestController : ApiController
     {
         private ITestServices tests;

@@ -1,5 +1,6 @@
 ﻿namespace Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class Car
@@ -21,7 +22,16 @@
 
         public int Kilometers { get; set; }
 
+        public decimal Price { get; set; }
+
         [Required]
         public CarType Brand { get; set; }
+
+        public string ConstructionYear { get; set; }
+
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
+
     }
 }

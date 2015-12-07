@@ -36,6 +36,7 @@
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
 
             kernel.Bind<ITestServices>().To<TestServices>();
+            kernel.Bind<ICarService>().To<CarService>();
         }
     }
 }

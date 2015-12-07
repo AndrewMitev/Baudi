@@ -25,6 +25,10 @@
 
         public int Kilometers { get; set; }
 
+        public decimal Price { get; set; }
+
+        public string ConstructionYear{ get; set; }
+
         [Required]
         public CarType Brand { get; set; }
     }

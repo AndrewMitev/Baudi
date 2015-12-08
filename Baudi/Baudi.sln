@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baudi.Data", "Data\Baudi.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baudi.Services.Data", "Baudi.Services.Data\Baudi.Services.Data.csproj", "{AF404765-62A0-4BE9-A848-EDD0285E484A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3C2785AA-6F4E-4E2F-9B39-14D7F9DE8FF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertImageFileToByteArray", "Common\ConvertImageFileToByteArray\ConvertImageFileToByteArray.csproj", "{264D2EF7-F91B-4664-B426-1394B2FBB805}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{AF404765-62A0-4BE9-A848-EDD0285E484A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF404765-62A0-4BE9-A848-EDD0285E484A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF404765-62A0-4BE9-A848-EDD0285E484A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264D2EF7-F91B-4664-B426-1394B2FBB805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264D2EF7-F91B-4664-B426-1394B2FBB805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264D2EF7-F91B-4664-B426-1394B2FBB805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264D2EF7-F91B-4664-B426-1394B2FBB805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +56,6 @@ Global
 		{D70E94F8-4B0F-4551-957B-1F74363884EE} = {650FA658-43CA-46B0-9800-399EE3752802}
 		{8DDD1382-BA8C-435D-A1AE-D6FCAE52AC0E} = {650FA658-43CA-46B0-9800-399EE3752802}
 		{AF404765-62A0-4BE9-A848-EDD0285E484A} = {9F29E14A-DAAE-4871-BE3D-866153688E86}
+		{264D2EF7-F91B-4664-B426-1394B2FBB805} = {3C2785AA-6F4E-4E2F-9B39-14D7F9DE8FF6}
 	EndGlobalSection
 EndGlobal

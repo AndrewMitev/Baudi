@@ -2,7 +2,7 @@
 {
     using System.IO;
 
-    public class ImageConverter
+    public static class ImageConverter
     {
         static void Main()
         {
@@ -14,13 +14,13 @@
              ConvertByteToFile("../../new.jpeg", result);
         }
 
-        private static byte[] ConvertFileToByte(string filename)
+        public static byte[] ConvertFileToByte(string filename)
         {
             var bytes = File.ReadAllBytes(filename);
             return bytes;
         }
 
-        private static void ConvertByteToFile(string path, byte[] bytes)
+        public static void ConvertByteToFile(string path, byte[] bytes)
         {
             File.WriteAllBytes(path, bytes);
         }

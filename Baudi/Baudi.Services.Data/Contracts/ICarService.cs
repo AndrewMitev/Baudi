@@ -13,5 +13,8 @@ namespace Baudi.Services.Data.Contracts
 
         IQueryable<Car> GetByYear(int page = 0, int size = 10);
 
+        Car PostCar(string name, int horsePower, float fuelConsuption, int kilometers, decimal price, string constructionYear, CarType type);
+
+        void AddImage(int carId, string imagePath);
     }
 }

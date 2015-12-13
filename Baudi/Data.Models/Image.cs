@@ -11,6 +11,8 @@
 
         public byte[] Content { get; set; }
 
+        public string OriginalName { get; set; }
+
         public int CarId { get; set; }
 
         public virtual Car Car { get; set; }

@@ -77,5 +77,35 @@ namespace Server.Api.Controllers
 
             return this.Ok(response);
         }
+
+        [Authorize]
+        [HttpPost]
+        public IHttpActionResult Post(CarResponseRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest("Model is invalid");
+            }
+
+            var car = this.cars.PostCar(model.Name,
+                                        model.HoursePower,
+                                        model.FuelConsumption,
+                                        model.Kilometers,
+                                        model.Price,
+                                        model.ConstructionYear,
+                                        model.Brand);
+
+
+            return this.Created("", car.Name);
+        }
+
+        [Authorize]
+        [HttpPut]
+        public IHttpActionResult AddImage(int carId, string imagePath)
+        {
+            this.cars.AddImage(carId, imagePath);
+
+            return this.Ok();
+        }
     }
 }

@@ -16,8 +16,6 @@
         [MaxLength(20)]
         public string Name { get; set; }
 
-        public string ImageUrl { get; set; }
-
         [Required]
         public int HoursePower { get; set; }
 

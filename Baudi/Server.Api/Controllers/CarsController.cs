@@ -77,5 +77,18 @@ namespace Server.Api.Controllers
 
             return this.Ok(response);
         }
+
+        [Authorize]
+        [HttpPost]
+        public IHttpActionResult PostCar(CarResponseRequestModel car)
+        {
+            this.cars.AddCar(
+                car.Name,
+                car.HoursePower,
+                car.Brand,
+                car.ImageUrl);
+
+            return this.Ok();   
+        }
     }
 }

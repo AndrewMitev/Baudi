@@ -13,5 +13,7 @@ namespace Baudi.Services.Data.Contracts
 
         IQueryable<Car> GetByYear(int page = 0, int size = 10);
 
+        bool AddCar(string name, int hoursePower, CarType brand, string url);
+
     }
 }

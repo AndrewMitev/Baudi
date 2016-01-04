@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
@@ -9,20 +10,22 @@ using System.Web.Http;
 
 namespace Server.Api
 {
-    public partial class Startup
+  public partial class Startup
+  {
+    public void Configuration(IAppBuilder app)
     {
-        public void Configuration(IAppBuilder app)
-        {
-            ConfigureAuth(app);
+      app.UseCors(CorsOptions.AllowAll);
 
-            var httpConfig = new HttpConfiguration();
-            WebApiConfig.Register(httpConfig);
+      ConfigureAuth(app);
 
-            httpConfig.EnsureInitialized();
+      var httpConfig = new HttpConfiguration();
+      WebApiConfig.Register(httpConfig);
 
-            app
-                .UseNinjectMiddleware(NinjectConfig.CreateKernel)
-                .UseNinjectWebApi(httpConfig);
-        }
+      httpConfig.EnsureInitialized();
+
+      app
+          .UseNinjectMiddleware(NinjectConfig.CreateKernel)
+          .UseNinjectWebApi(httpConfig);
     }
+  }
 }

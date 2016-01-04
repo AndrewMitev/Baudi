@@ -54,5 +54,20 @@ namespace Baudi.Services.Data
                       .Skip(page * pageSize)
                       .Take(pageSize);
         }
+
+        public bool AddCar(string name, int hoursePower, CarType brand, string url)
+        {
+            this.cars.Add(new Car()
+            {
+                Name = name,
+                HoursePower = hoursePower,
+                Brand = brand,
+                ImageUrl = url
+            });
+
+            this.cars.SaveChanges();
+
+            return true;
+        }
     }
 }

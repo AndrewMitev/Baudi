@@ -1,3 +1,3 @@
 # Baudi
-Selling system for BMW and Audi.
+Selling system for BMVV and Audl.
 Designed by Andrei Mitev and Vladimir Sopotlyanov

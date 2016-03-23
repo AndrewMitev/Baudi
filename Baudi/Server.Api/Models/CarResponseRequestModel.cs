@@ -27,6 +27,8 @@
 
         public string ConstructionYear{ get; set; }
 
+        public string Image { get; set; }
+
         [Required]
         public CarType Brand { get; set; }
     }

@@ -6,11 +6,8 @@
 
     public class Car
     {
-        private ICollection<Image> images;
-
         public Car()
         {
-            this.images = new HashSet<Image>();
         }
 
         [Key]
@@ -35,14 +32,10 @@
 
         public string ConstructionYear { get; set; }
 
+        public string Image { get; set; }
+
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
-
-        public virtual ICollection<Image> Images
-        {
-            get { return this.images; }
-            set { this.images = value; }
-        }
     }
 }

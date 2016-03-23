@@ -1,11 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Baudi.Services.Data.Contracts;
 using Server.Api.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Server.Api.Controllers
@@ -80,17 +75,6 @@ namespace Server.Api.Controllers
 
         [Authorize]
         [HttpPost]
-<<<<<<< HEAD
-        public IHttpActionResult PostCar(CarResponseRequestModel car)
-        {
-            this.cars.AddCar(
-                car.Name,
-                car.HoursePower,
-                car.Brand,
-                car.ImageUrl);
-
-            return this.Ok();   
-=======
         public IHttpActionResult Post(CarResponseRequestModel model)
         {
             if (!ModelState.IsValid)
@@ -104,20 +88,10 @@ namespace Server.Api.Controllers
                                         model.Kilometers,
                                         model.Price,
                                         model.ConstructionYear,
+                                        model.Image,
                                         model.Brand);
 
-
             return this.Created("", car.Name);
-        }
-
-        [Authorize]
-        [HttpPut]
-        public IHttpActionResult AddImage(int carId, string imagePath)
-        {
-            this.cars.AddImage(carId, imagePath);
-
-            return this.Ok();
->>>>>>> cebda9d7293e7af970ab42d1af84e3ef11a7e6c1
         }
     }
 }

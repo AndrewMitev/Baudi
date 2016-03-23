@@ -1,0 +1,86 @@
+﻿<div class="container">
+    <div ng-show="vm.identity.isAuthenticated()" class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="text-center">
+                    <label for="brand" class="control-label">Brand</label>
+                </div>
+                <div>
+                    <select class="form-control" required="required" ng-init="vm.request.brand='All'" ng-model="vm.request.brand" id="brand">
+                        <option value="All">All</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="text-center">
+                    <label for="sort" class="control-label">Sort</label>
+                </div>
+                <div>
+                    <select class="form-control" required="required" ng-init="vm.request.orderBy='price'" ng-model="vm.request.orderBy" id="sort">
+                        <option value="price">Price</option>
+                        <option value="year">Year</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="text-center">
+                    <label for="sort" class="control-label">Order</label>
+                </div>
+                <div>
+                    <select class="form-control" required="required" ng-init="vm.request.orderType='asc'" ng-model="vm.request.orderType" id="type">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-4">
+            <button class="btn btn-primary btn-block" ng-click="vm.filterCars()">Filter</button>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div style="width:80%" class="row" ng-repeat="car in vm.filteredCars">
+        <div class="panel panel-primary col-md-offset-2">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{car.Name}}</h3>
+            </div>
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <td><img style="width: 120px; height: 80px;" ng-src="{{car.Image || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'}}" /></td>
+                        <td>
+                            <ul style="list-style-type: none">
+                                <li>Year created: {{car.ConstructionYear}}</li>
+                                <li>Hourse Powers: {{car.HoursePower}}</li>
+                                <li>Fuel Consumption: {{car.FuelConsumption}}</li>
+                                <li>Kilometers: {{car.Kilometers}}</li>
+                                <li>Price: {{car.Price}}$</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="vm.identity.isAuthenticated()">
+        <div class="col-md-3 col-md-offset-4">
+            <div class="col-md-3">
+                <button class="btn btn-primary" ng-click="vm.prevPage()">&lt;&lt;</button>
+            </div>
+            <div class="col-md-6">
+                <input type="number" ng-model="vm.request.page" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" ng-click="vm.nextPage()">&gt;&gt;</button>
+            </div>
+        </div>
+    </div>

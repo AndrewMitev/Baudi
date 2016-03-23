@@ -1,0 +1,67 @@
+﻿<div class="container">
+    <div class="well">
+        <form name="createCar" class="form-horizontal">
+            <fieldset>
+                <legend>Create New Car</legend>
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label">Title</label>
+                    <div class="col-md-10">
+                        <input id="name" type="text" placeholder="Title" ng-model="car.name" required="required" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="yearCreated" class="col-md-2 control-label">Year created</label>
+                    <div class="col-md-10">
+                        <input id="yearCreated" type="number" placeholder="yearCreated" ng-model="car.constructionYear" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hoursePower" class="col-md-2 control-label">Hourse Power</label>
+                    <div class="col-md-10">
+                        <input id="hoursePower" type="number" placeholder="hoursePower" ng-model="car.hoursePower" required="required" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hoursePower" class="col-md-2 control-label">Fuel Consumption</label>
+                    <div class="col-md-10">
+                        <input id="fuelConsumption" type="number" placeholder="fuelConsumption" ng-model="car.fuelConsumption" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="kilometers" class="col-md-2 control-label">Kilometers</label>
+                    <div class="col-md-10">
+                        <input id="kilometers" type="number" placeholder="kilometers" ng-model="car.kilometers" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-md-2 control-label">Price</label>
+                    <div class="col-md-10">
+                        <input id="price" type="number" placeholder="price" ng-model="car.price" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image" class="col-md-2 control-label">Image Url</label>
+                    <div class="col-md-10">
+                        <input id="image" type="url" placeholder="image" ng-model="car.image" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image" class="col-md-2 control-label">Brand</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-init="car.brand='0'" ng-model="car.brand">
+                            <option  disabled>--Choose Value--</option>
+                            <option value="0">BMW</option>
+                            <option value="1">Audi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <button ng-click="vm.createCar(car)" ng-disabled="createCar.$invalid" class="btn btn-primary">
+                        Create
+                    </button>
+                    <a href="#/" class="btn btn-primary">Cancel</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 ﻿namespace Data
 {
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
+    using System.Data.Entity;
 
     public class BaudiDbContext : IdentityDbContext<User>, IBaudiDbContext
     {
@@ -13,5 +15,7 @@
         {
             return new BaudiDbContext();
         }
+
+        public IDbSet<Car> Cars { get; set; }
     }
 }

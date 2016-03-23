@@ -48,10 +48,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Common\ConvertImageFileToByteArray\ConvertImageFileToByteArray.csproj">
-      <Project>{264d2ef7-f91b-4664-b426-1394b2fbb805}</Project>
-      <Name>ConvertImageFileToByteArray</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Data.Models\Baudi.Data.Models.csproj">
       <Project>{d70e94f8-4b0f-4551-957b-1f74363884ee}</Project>
       <Name>Baudi.Data.Models</Name>

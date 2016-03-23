@@ -2,6 +2,7 @@
 using System.Linq;
 using Data.Models;
 using Data.Repositories;
+using System;
 
 namespace Baudi.Services.Data
 {
@@ -15,39 +16,55 @@ namespace Baudi.Services.Data
             this.cars = cars;
         }
 
-        public IQueryable<Car> GetAll(int page = 0, int pageSize = 10)
+        public IQueryable<Car> GetAll(int page = 1, int pageSize = 10, int brand = -1)
         {
             return this.cars
                        .All()
+                       .Where(c => brand == -1 ? true : c.Brand == (CarType)brand)
                        .OrderBy(c => c.Name)
-                       .Skip(page * pageSize)
+                       .Skip((page - 1) * pageSize)
                        .Take(pageSize);
         }
 
-        public IQueryable<Car> GetByYear(int page = 0, int pageSize = 10)
+        public IQueryable<Car> GetNewest(int page = 1, int pageSize = 10, int brand = -1)
+        {
+
+            return this.cars
+                      .All()
+                      .Where(c => brand == -1 ? true : c.Brand == (CarType)brand)
+                      .OrderByDescending(c => c.ConstructionYear)
+                      .Skip((page - 1) * pageSize)
+                      .Take(pageSize);
+
+        }
+
+        public IQueryable<Car> GetOldest(int page = 1, int pageSize = 10, int brand = -1)
         {
             return this.cars
-                       .All()
-                       .OrderByDescending(c => c.ConstructionYear)
-                       .Skip(page * pageSize)
-                       .Take(pageSize);
+                    .All()
+                    .Where(c => brand == -1 ? true : c.Brand == (CarType)brand)
+                    .OrderBy(c => c.ConstructionYear)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize);
         }
 
-        public IQueryable<Car> GetCheapest(int page = 0, int pageSize = 10)
+        public IQueryable<Car> GetCheapest(int page = 1, int pageSize = 10, int brand = -1)
         {
             return this.cars
                       .All()
+                      .Where(c => brand == -1 ? true : c.Brand == (CarType)brand)
                       .OrderBy(c => c.Price)
-                      .Skip(page * pageSize)
+                      .Skip((page - 1) * pageSize)
                       .Take(pageSize);
         }
 
-        public IQueryable<Car> GetMostExpensive(int page = 0, int pageSize = 10)
+        public IQueryable<Car> GetMostExpensive(int page = 1, int pageSize = 10, int brand = -1)
         {
             return this.cars
                       .All()
+                      .Where(c => brand == -1 ? true : c.Brand == (CarType)brand)
                       .OrderByDescending(c => c.Price)
-                      .Skip(page * pageSize)
+                      .Skip((page - 1) * pageSize)
                       .Take(pageSize);
         }
         public Car PostCar(string name, int horsePower, float fuelConsumption, int kilometers, decimal price, string constructionYear, string image, CarType type)
@@ -60,7 +77,7 @@ namespace Baudi.Services.Data
                 Kilometers = kilometers,
                 Price = price,
                 ConstructionYear = constructionYear,
-                Brand = type,
+                Brand = (CarType)type,
                 Image = image
             };
 

@@ -15,7 +15,7 @@
 
         [Required]
         [MinLength(2)]
-        [MaxLength(20)]
+        [MaxLength(25)]
         public string Name { get; set; }
 
         [Required]
@@ -30,6 +30,7 @@
         [Required]
         public CarType Brand { get; set; }
 
+        [RegularExpression("^[0-9]{4}$", ErrorMessage = "Select four digits!")]
         public string ConstructionYear { get; set; }
 
         public string Image { get; set; }

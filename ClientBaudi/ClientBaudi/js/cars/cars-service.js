@@ -13,22 +13,7 @@
 
         function filterCars(request) {
             //TODO: Change logic here!
-            var brandQuery;
-
-            if (request.brand == 'All')
-            {
-                brandQuery = '';
-            }
-
-            if (request.brand == 'Audi')
-            {
-                brandQuery = '&brand=1';
-            }
-
-            if (request.brand == 'BMW')
-            {
-                brandQuery = '&brand=0';
-            }
+            var brandQuery = '&brand=' + request.brand;
 
             if (request.orderBy == 'price' && request.orderType == 'asc') {
                 return data.get('api/cars/filteredByPriceLow?page=' + request.page + '&pageSize=5' + brandQuery);

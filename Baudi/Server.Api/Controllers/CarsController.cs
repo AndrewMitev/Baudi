@@ -89,7 +89,7 @@ namespace Server.Api.Controllers
             return this.Ok(response);
         }
 
-        [AllowAnonymous]
+        [Authorize]
         [HttpPost]
         public IHttpActionResult Post(CarResponseRequestModel model)
         {

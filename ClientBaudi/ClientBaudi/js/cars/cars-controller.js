@@ -20,9 +20,6 @@
         }
 
         vm.nextPage = function () {
-            if (!vm.filteredCars || vm.filteredCars.length == 0) {
-                return;
-            }
 
             vm.request.page++;
             vm.filterCars();
@@ -31,18 +28,23 @@
         vm.filterCars = function () {
             cars.filterCars(vm.request)
              .then(function (filteredCars) {
+                 var previousCars = vm.filteredCars;
                  vm.filteredCars = filteredCars;
+
+                 if (!vm.filteredCars || vm.filteredCars.length == 0)
+                 {
+                     vm.filteredCars = previousCars;
+                     vm.request.page--;
+                 }
              });
         }
 
         cars.getAll()
             .then(function (allCars) {
                 vm.filteredCars = allCars;
-                console.log(allCars);
             });
 
         vm.createCar = function (car) {
-            console.log(car);
             cars.addCar(car)
                 .then(function () {
                     notifier.success('Car added successfully!');

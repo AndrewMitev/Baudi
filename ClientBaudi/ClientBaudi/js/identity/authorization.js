@@ -4,8 +4,13 @@
     function authorization(identity) {
         return {
             getAuthorizationHeader: function () {
-                return {
-                    'Authorization': 'Bearer ' + identity.getCurrentUser()['access_token']
+                if (identity.isAuthenticated()) {
+                    return {
+                        'Authorization': 'Bearer ' + identity.getCurrentUser()['access_token']
+                    }
+                }
+                else {
+                    return undefined;
                 }
             }
         }

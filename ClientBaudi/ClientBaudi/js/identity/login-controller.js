@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function LoginController($scope, $location, notifier, identity, auth) {
+    function LoginController($scope, $location, $window, notifier, identity, auth) {
         $scope.identity = identity;
 
         $scope.login = function (user, loginForm) {
@@ -9,7 +9,7 @@
                 auth.login(user).then(function (success) {
                     if (success) {
                         notifier.success('Successful login!');
-                        $location.path('/');
+                        $window.location.reload();
 
                     }
                     else {
@@ -20,6 +20,7 @@
             else {
                 notifier.error('Username and password are required fields!')
             }
+
         }
 
         $scope.logout = function () {
@@ -33,10 +34,12 @@
 
                 $scope.loginForm.$setPristine();
                 $location.path('/');
+                $window.location.reload();
+
             })
         }
     }
 
     angular.module('myApp.controllers')
-        .controller('LoginController', ['$scope', '$location', 'notifier', 'identity', 'auth', LoginController]);
+        .controller('LoginController', ['$scope', '$location','$window', 'notifier', 'identity', 'auth', LoginController]);
 }());
